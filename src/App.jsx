@@ -18,10 +18,6 @@ const router = createBrowserRouter([
         element: <PostList />
       },
       {
-        path: "/posts",
-        element: <PostList />
-      },
-      {
         path: "/posts/:postId",
         element: <PostComments />
       },
