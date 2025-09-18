@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import PostCard from '../components/PostCard';
 
 const PostList = () => {
 
@@ -28,12 +29,14 @@ const PostList = () => {
         <>
             <div>PostList</div>
             <div>
-                {postData?.map((post) => (
-                    <React.Fragment key={post?.id}>
-                        <h2>{post.title}</h2>
-                        <p>{post.body}</p>
-                    </React.Fragment>
-                ))
+                {loading ? <p>Loading</p>
+                    : (
+                        postData?.map((post) => (
+                            <div key={post?.id}>
+                                <PostCard post={post} />
+                            </div>
+                        ))
+                    )
                 }
             </div >
         </>
