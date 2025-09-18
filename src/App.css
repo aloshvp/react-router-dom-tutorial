@@ -3,3 +3,8 @@
   gap: 15px;
   margin: 0 0 30px;
 }
+
+.active {
+  background-color: #000;
+  color: #fff;
+}
