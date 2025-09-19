@@ -5,11 +5,13 @@ import Home from './pages/Home'
 import PostList from './pages/PostList'
 import { PostLoader } from './pages/PostList'
 import PostComments from './pages/PostComments'
-import Header from './components/Header'
+// import Header from './components/Header'
+import Error from './components/Error'
 
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
+    errorElement: <Error />,
     children: [
       {
         path: "/",
