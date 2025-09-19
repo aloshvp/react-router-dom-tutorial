@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const PostComments = () => {
 
+    const navigate = useNavigate();
     const { postId } = useParams();
     const [loader, setLoader] = useState(false);
     const [postComments, setPostComments] = useState([]);
@@ -13,7 +14,7 @@ const PostComments = () => {
             const data = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`);
             const json = await data.json();
             setPostComments(json);
-            console.log(json)
+            // console.log(json)
         }
         catch (err) {
             console.log(err)
@@ -45,6 +46,10 @@ const PostComments = () => {
                 )
                 )}
             </div >
+
+
+            <button onClick={() => navigate(-1)}>Back</button>
+
 
         </div >
     )
