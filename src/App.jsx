@@ -7,6 +7,9 @@ import { PostLoader } from './pages/PostList'
 import PostComments from './pages/PostComments'
 // import Header from './components/Header'
 import Error from './components/Error'
+import Login from './components/Login'
+import Signup from './components/Signup'
+import RequiredAuth from './components/RequiredAuth'
 
 const router = createBrowserRouter([
   {
@@ -14,12 +17,25 @@ const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       {
-        path: "/",
-        element: <Home />
+        path: "/auth",
+        element: <Home />,
+        children: [
+          {
+            path: "/auth/login",
+            element: <Login />
+          },
+          {
+            path: "/auth/signup",
+            element: <Signup />
+          },
+        ]
       },
       {
         path: "/posts",
-        element: <PostList />,
+        element:
+          <RequiredAuth>
+            < PostList />
+          </RequiredAuth>,
         loader: PostLoader
       },
       {

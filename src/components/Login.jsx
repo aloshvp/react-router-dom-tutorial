@@ -12,6 +12,7 @@ const Login = () => {
         console.log("Email:" + email);
         console.log("Password:" + password);
         if (email && password) {
+            localStorage.setItem("loggedIn", true)
             navigate("/posts");
         }
 

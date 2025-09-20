@@ -4,11 +4,13 @@ import { useNavigate } from 'react-router-dom'
 const Signup = () => {
     const navigate = useNavigate()
 
+    const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log("Name:" + name);
         console.log("Email:" + email);
         console.log("Password:" + password);
         if (email && password) {
@@ -19,6 +21,7 @@ const Signup = () => {
         <div>
             <h2>Sign up</h2>
             <form action="post" onSubmit={handleSubmit}>
+                <input type="text" name="name" value={name} onChange={(e) => setName(e.target.value)} />
                 <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 < input type="password" name='password' value={password} onChange={(e) => setPassword(e.target.value)} />
                 <input type="submit" value="Submit" />
