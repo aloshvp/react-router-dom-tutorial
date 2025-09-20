@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import PostList from './pages/PostList'
 import { PostLoader } from './pages/PostList'
 import PostComments from './pages/PostComments'
+import Product from "./pages/Product"
 // import Header from './components/Header'
 import Error from './components/Error'
 import Login from './components/Login'
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: "/posts/:postId",
         element: <PostComments />
+      },
+      {
+        path: "/product",
+        element: <Product />
       },
     ]
   }
